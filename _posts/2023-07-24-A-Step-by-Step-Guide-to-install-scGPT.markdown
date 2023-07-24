@@ -70,11 +70,18 @@ pip install scgpt
 
 ### Step 7: Install nvcc 11.7
 
-If the installation fails again with a `build flash_attn failed` error, it means no nvcc was found. The installation requires an nvcc version compatible with the PyTorch compiled version. Since PyTorch is compiled with CUDA 11.7, we need nvcc 11.7:
-
+If the installation fails again with a `build flash_attn failed` error, it indicates that `nvcc` was not found. To run scGPT, you need an `nvcc` version compatible with the PyTorch compiled version. But how do you determine which CUDA version your PyTorch is compiled with? It's simple - in Python, import torch and use `torch.version.cuda` to check the CUDA version.
+```python
+>>> import torch
+>>> print(torch.version.cuda)
+11.7
+```
+If PyTorch is compiled with CUDA 11.7, then you will need `nvcc` 11.7. Here's how to do it:
 ```bash
 mamba install -y -c "nvidia/label/cuda-11.7.0" cuda-toolkit
 ```
+
+
 
 ### Step 8: Attempt to Install scGPT Again
 
@@ -117,7 +124,7 @@ sudo apt-get upgrade gcc
 Finally, open a Python shell and import scGPT:
 
 ```python
-import scgpt
+>>> import scgpt
 ```
 
 If you see "Global seed set to 0", it means scGPT has been successfully installed.
