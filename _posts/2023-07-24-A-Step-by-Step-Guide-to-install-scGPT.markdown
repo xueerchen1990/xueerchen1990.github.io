@@ -31,7 +31,7 @@ Follow the guidelines provided in the [official Mamba documentation](https://mam
 Once Mamba is installed, initiate a new environment specifically for scGPT:
 
 ```bash
-mamba create --name scgpt
+mamba create -n scgpt python=3.10
 ```
 
 ### Step 3: Activate the Environment
@@ -39,7 +39,7 @@ mamba create --name scgpt
 Activate the new environment with the following command:
 
 ```bash
-conda activate scgpt
+mamba activate scgpt
 ```
 
 ### Step 4: Attempt to Install scGPT
