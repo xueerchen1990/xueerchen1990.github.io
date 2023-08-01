@@ -20,7 +20,7 @@ Before diving into the installation steps, it's essential to understand why we'r
 ## Installing scGPT: A Step-by-Step Guide
 
 ### Step 0: GPU required
-Keep in mind that using scGPT requires an NVIDIA GPU in your computer, along with an up-to-date GPU driver. For reference, my installation and testing were performed with Driver Version 515.65.01
+Keep in mind that using scGPT requires an NVIDIA GPU in your computer, along with an up-to-date GPU driver. For reference, my installation and testing were performed with Driver Version `515.65.01`. To check driver version, simply open a terminal and type `nvidia-smi` and driver version can be found on the top of the output table.
 
 ### Step 1: Install Mamba
 
