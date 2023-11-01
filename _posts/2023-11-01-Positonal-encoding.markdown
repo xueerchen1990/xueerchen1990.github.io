@@ -19,7 +19,7 @@ Positional encoding is the solution to this problem. It adds unique information 
 
 Let's walk through a graphical representation:
 
-<img src="../figs/pe/pe.png" width="550" height="250">
+![pe](/assets/pe/pe.png)
 
 The diagram showcases the flow of information through the initial stages of a Transformer model:
 
@@ -72,11 +72,11 @@ $f(x) = \exp \left( x \times \left( -\frac{\log(10000.0)}{d_{\text{model}}} \rig
 
 Note that $-\frac{\log(10000.0)}{d_{\text{model}}}$ is a constant so essentially it is just $f(x) = \exp(xc)$. If we plot it, the function looks like this: 
 
-<img src="../figs/pe/exp.png" width="550" height="310">
+![exp](/assets/pe/exp.png)
 
 So essentially, with the `div_term` the frequency decreases along the dimention of `d_model`. This can be proved by drawing a heat map of `pe` as shown below:
 
-<img src="../figs/pe/heat.png" width="550" height="310">
+![hest](/assets/pe/heat.png)
 
 1. **Axes**:
     - The **Y-axis** represents the sequence length, ranging from 0 to 127 (a total of 128 positions). 
@@ -120,7 +120,8 @@ plt.ylabel('t-SNE feature 2')
 plt.show()
 ```
 
-<img src="../figs/pe/tsne.png" width="550" height="310">
+![tsne](/assets/pe/tsne.png)
+
 Each data point is labeled with a number, which represents a positional encoded vector for each position in the sequence (from 0 to 127). The postional encoded vectors are fairly scattered across the 2D space, which is what we want. However, there are distinct clusters. The pattern of periodicity emerges again. Looking closely at each cluster, we can see periodicity of `6` and `63`. The periodicity introduces a bias to positions. For example, it is not likely that position `5` and position `68` should be that close in real world sentences. More advanced positional encoding algorithms are needed to revove such biases.
 
 ## Conclusion
