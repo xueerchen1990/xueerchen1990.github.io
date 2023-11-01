@@ -5,11 +5,19 @@ date:   2023-07-24 09:33:12 -0400
 categories: scGPT
 published: true
 ---
+## Docker container update
+I made a [docker container of scgpt](https://github.com/bowang-lab/scGPT/pull/105) and it will be super simple to setup! Simply run the following instructions:
+```bash
+docker pull xueerchen/scgpt:0.1.7
+docker run --gpus all --rm -it xueerchen/scgpt:0.1.7 bash
+```
+
+## What is scGPT?
 In the rapidly evolving field of single-cell omics data analysis, a new player, scGPT, has emerged, showing promising capabilities in managing and interpreting complex single-cell data. As detailed in a [recent preprint](https://www.biorxiv.org/content/10.1101/2023.04.30.538439v2), scGPT is a generative pretrained transformer model that has been pretrained on over 33 million human cells to learn representations of cells and genes. Once pretrained, scGPT can be fine-tuned on smaller datasets to perform diverse downstream tasks such as cell type annotation, perturbation response prediction, batch correction, multi-omic data integration, and gene regulatory network inference. Impressively, scGPT has shown state-of-the-art performance on these tasks compared to previous methods.
 
 However, to harness the full potential of scGPT, it's crucial to understand how to install it correctly. While the [GitHub repository](https://github.com/bowang-lab/scGPT) simply suggests using `pip install scgpt` for installation, the reality could be a bit more nuanced. You might encounter various issues during the process that the official documentation doesn't cover. Therefore, in this guide, we aim to provide a comprehensive walkthrough of the installation process, preparing you for any potential hiccups you might face. Our goal is to ensure that you can fully leverage this powerful tool without being stalled by technical roadblocks.
 
-# Why Mamba?
+## Why Mamba?
 
 Before diving into the installation steps, it's essential to understand why we're using Mamba, a fast and reliable package manager, as opposed to pip:
 
