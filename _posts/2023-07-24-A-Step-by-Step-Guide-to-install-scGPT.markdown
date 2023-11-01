@@ -6,7 +6,7 @@ categories: scGPT
 published: true
 ---
 ## Docker container update
-I made a [docker container of scgpt](https://github.com/bowang-lab/scGPT/pull/105) and it will be super simple to setup! Simply run the following instructions:
+I made a [docker container of scgpt](https://github.com/bowang-lab/scGPT/pull/105) and now it is super easy to setup! Simply run the following instructions:
 ```bash
 docker pull xueerchen/scgpt:0.1.7
 docker run --gpus all --rm -it xueerchen/scgpt:0.1.7 bash
