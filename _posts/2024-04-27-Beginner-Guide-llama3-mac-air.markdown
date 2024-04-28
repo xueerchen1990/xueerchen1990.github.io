@@ -5,6 +5,7 @@ date:   2024-04-27 09:33:12 -0400
 categories: mlx-lm
 published: true
 ---
+![lm](/assets/llama3_mac/llama_mac.png)
 ## Introduction:
 Are you excited to explore the world of large language models on your MacBook Air? In this blog post, I'll walk you through the steps to get Llama-3-8B up and running on your machine. I'll also share a recent discovery that improves the model's responses by applying a templating fix. Let's dive in!
 
