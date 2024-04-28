@@ -6,7 +6,8 @@ categories: mlx-lm
 published: true
 ---
 ![lm](/assets/llama3_mac/llama_mac.png)
-[link to the notebook](https://github.com/xueerchen1990/blog_notebooks/blob/main/begginer_guide_llama3_mlx_macbook_air/llama3-8B-mlx-macbook-air.ipynb)
+
+### [link to the notebook](https://github.com/xueerchen1990/blog_notebooks/blob/main/begginer_guide_llama3_mlx_macbook_air/llama3-8B-mlx-macbook-air.ipynb)
 
 ## Introduction:
 Are you excited to explore the world of large language models on your MacBook Air? In this blog post, we'll walk you through the steps to get Llama-3-8B up and running on your machine. We'll also share a recent discovery that improves the model's responses by applying a templating fix, which is especially crucial when working with low-precision quantized models like the 4-bit Llama-3-8B used in this example. Low-precision quantization reduces the memory footprint and computational requirements of large language models, enabling faster inference on resource-constrained devices like the MacBook Air. However, this quantization may result in a loss of expressiveness and fine-grained detail capture. Templating compensates for this by providing a well-structured context for the model to follow, guiding its responses and helping it generate more coherent and relevant outputs. Let's dive in!
