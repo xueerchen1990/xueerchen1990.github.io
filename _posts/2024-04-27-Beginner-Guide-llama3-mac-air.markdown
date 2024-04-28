@@ -7,12 +7,15 @@ published: true
 ---
 ![lm](/assets/llama3_mac/llama_mac.png)
 ## Introduction:
-Are you excited to explore the world of large language models on your MacBook Air? In this blog post, I'll walk you through the steps to get Llama-3-8B up and running on your machine. I'll also share a recent discovery that improves the model's responses by applying a templating fix. Let's dive in!
+Are you excited to explore the world of large language models on your MacBook Air? In this blog post, we'll walk you through the steps to get Llama-3-8B up and running on your machine. We'll also share a recent discovery that improves the model's responses by applying a templating fix, which is especially crucial when working with low-precision quantized models like the 4-bit Llama-3-8B used in this example. Low-precision quantization reduces the memory footprint and computational requirements of large language models, enabling faster inference on resource-constrained devices like the MacBook Air. However, this quantization may result in a loss of expressiveness and fine-grained detail capture. Templating compensates for this by providing a well-structured context for the model to follow, guiding its responses and helping it generate more coherent and relevant outputs. Let's dive in!
+
+## Hardware:
+For this experiment, I used a MacBook Air 15" with an M2 chip and 16GB of memory. Unfortunately, I was unable to run the model on my 8GB Mac mini. If you have a Mac mini and are looking for a model that can run comfortably on it, don't worry! You can try [phi3-mini](https://huggingface.co/mlx-community/Phi-3-mini-4k-instruct-4bit), which is a smaller model that works well on a 8GB Mac.
 
 ## Setting Up the Environment:
 1. Make sure you have Python installed on your MacBook Air. I recommend using a virtual environment such as [mamba miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#miniforge3) to keep your dependencies isolated.
 2. Install the required libraries: `pip install mlx-lm torch`
-3. Download the pre-trained Llama-3-8B model and tokenizer. In this example, I'll be using the "mlx-community/Meta-Llama-3-8B-Instruct-4bit" model.
+3. Download the pre-trained Llama-3-8B model and tokenizer. In this example, I'll be using the "mlx-community/Meta-Llama-3-8B-Instruct-4bit" model. The model weights are 5GB.
 
 ## Loading the Model and Tokenizer:
 1. Use the `load` function from `mlx_lm` to load the pre-trained model and tokenizer:
@@ -64,4 +67,4 @@ Are you excited to explore the world of large language models on your MacBook Ai
 4. The templating fix helps the model understand the context and generate more relevant and coherent responses.
 
 ## Conclusion:
-Running Llama-3-8B on your MacBook Air is a straightforward process. By applying the templating fix and properly decoding the token IDs, you can significantly improve the model's responses and engage in more natural conversations. Remember that the `generate` function expects the `prompt` argument to be a string, so make sure to decode the output of `apply_chat_template` before passing it to `generate`. Experiment with different prompts and have fun exploring the capabilities of this powerful language model!
+Running Llama-3-8B on your MacBook Air is a straightforward process. By applying the templating fix and properly decoding the token IDs, you can significantly improve the model's responses and engage in more natural conversations. The apply_chat_template method from the tokenizer is particularly beneficial for low-precision quantized models like the 4-bit Llama-3-8B, as it formats the input messages into a template that the model can better understand and follow, mitigating the limitations imposed by the reduced precision. Remember that the `generate` function expects the prompt argument to be a string, so make sure to decode the output of `apply_chat_template` before passing it to generate. Experiment with different prompts and have fun exploring the capabilities of this powerful language model!
