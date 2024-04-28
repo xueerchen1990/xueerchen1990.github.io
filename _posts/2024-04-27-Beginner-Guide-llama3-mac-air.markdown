@@ -9,13 +9,14 @@ published: true
 Are you excited to explore the world of large language models on your MacBook Air? In this blog post, we'll walk you through the steps to get Llama-3-8B up and running on your machine. We'll also share a recent discovery that improves the model's responses by applying a templating fix. Let's dive in!
 
 ## Setting Up the Environment:
-1. Make sure you have Python installed on your MacBook Air. We recommend using a virtual environment to keep your dependencies isolated.
-2. Install the required libraries, such as `mlx_lm` and `transformers`, using pip or conda.
+1. Make sure you have Python installed on your MacBook Air. We recommend using a virtual environment such as [mamba miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#miniforge3) to keep your dependencies isolated.
+2. Install the required libraries: `pip install mlx-lm torch`
 3. Download the pre-trained Llama-3-8B model and tokenizer. In this example, we'll be using the "mlx-community/Meta-Llama-3-8B-Instruct-4bit" model.
 
 ## Loading the Model and Tokenizer:
 1. Use the `load` function from `mlx_lm` to load the pre-trained model and tokenizer:
    ```python
+   from mlx_lm import load, generate
    model, tokenizer = load("mlx-community/Meta-Llama-3-8B-Instruct-4bit")
    ```
 2. This step might take a few minutes depending on your internet connection and machine specs.
