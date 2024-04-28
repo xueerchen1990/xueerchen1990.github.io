@@ -6,12 +6,12 @@ categories: mlx-lm
 published: true
 ---
 ## Introduction:
-Are you excited to explore the world of large language models on your MacBook Air? In this blog post, we'll walk you through the steps to get Llama-3-8B up and running on your machine. We'll also share a recent discovery that improves the model's responses by applying a templating fix. Let's dive in!
+Are you excited to explore the world of large language models on your MacBook Air? In this blog post, I'll walk you through the steps to get Llama-3-8B up and running on your machine. I'll also share a recent discovery that improves the model's responses by applying a templating fix. Let's dive in!
 
 ## Setting Up the Environment:
-1. Make sure you have Python installed on your MacBook Air. We recommend using a virtual environment such as [mamba miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#miniforge3) to keep your dependencies isolated.
+1. Make sure you have Python installed on your MacBook Air. I recommend using a virtual environment such as [mamba miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#miniforge3) to keep your dependencies isolated.
 2. Install the required libraries: `pip install mlx-lm torch`
-3. Download the pre-trained Llama-3-8B model and tokenizer. In this example, we'll be using the "mlx-community/Meta-Llama-3-8B-Instruct-4bit" model.
+3. Download the pre-trained Llama-3-8B model and tokenizer. In this example, I'll be using the "mlx-community/Meta-Llama-3-8B-Instruct-4bit" model.
 
 ## Loading the Model and Tokenizer:
 1. Use the `load` function from `mlx_lm` to load the pre-trained model and tokenizer:
@@ -29,8 +29,8 @@ Are you excited to explore the world of large language models on your MacBook Ai
 2. Replace "Your prompt here" with the text you want the model to generate a response for.
 
 ## Applying the Templating Fix:
-1. A recent discovery has shown that applying a templating fix can significantly improve the model's responses.
-2. Instead of directly passing the prompt to the `generate` function, we'll use the tokenizer's `apply_chat_template` method to format the input:
+1. A recent discovery I made is that the default [example code of mlx-lm llama3 models doesn't have proper templating](https://huggingface.co/mlx-community/Meta-Llama-3-8B-Instruct-4bithttps://huggingface.co/mlx-community/Meta-Llama-3-8B-Instruct-4bit). By applying a templating fix can significantly improve the model's responses.
+2. Instead of directly passing the prompt to the `generate` function, I'll use the tokenizer's `apply_chat_template` method to format the input:
    ```python
    messages = [
        {"role": "system", "content": "You are a friendly chatbot."},
@@ -43,12 +43,12 @@ Are you excited to explore the world of large language models on your MacBook Ai
    )
    ```
 3. The `apply_chat_template` method formats the messages into a template that the model understands. However, it returns a list of token IDs (integers) rather than a string.
-4. To pass the templated input to the `generate` function, we need to decode the token IDs back into a string using the tokenizer's `decode` method:
+4. To pass the templated input to the `generate` function, I need to decode the token IDs back into a string using the tokenizer's `decode` method:
    ```python
    prompt = tokenizer.decode(input_ids[0].tolist())
    response = generate(model, tokenizer, prompt=prompt)
    ```
-5. By decoding the token IDs, we restore the templated input to its string representation, which can be directly passed to the `generate` function.
+5. By decoding the token IDs, I restore the templated input to its string representation, which can be directly passed to the `generate` function.
 
 ## The Power of Templating:
 1. Let's compare the responses with and without the templating fix for the prompt "Hello, what's your name?".
