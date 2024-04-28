@@ -12,6 +12,8 @@ Are you excited to explore the world of large language models on your MacBook Ai
 ## Hardware:
 For this experiment, I used a MacBook Air 15" with an M2 chip and 16GB of memory. Unfortunately, I was unable to run the model on my 8GB Mac mini. If you have a Mac mini and are looking for a model that can run comfortably on it, don't worry! You can try [phi3-mini](https://huggingface.co/mlx-community/Phi-3-mini-4k-instruct-4bit), which is a smaller model that works well on a 8GB Mac.
 
+![lm](/assets/llama3_mac/usage.png)
+
 ## Setting Up the Environment:
 1. Make sure you have Python installed on your MacBook Air. I recommend using a virtual environment such as [mamba miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#miniforge3) to keep your dependencies isolated.
 2. Install the required libraries: `pip install mlx-lm torch`
