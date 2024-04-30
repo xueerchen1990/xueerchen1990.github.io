@@ -60,16 +60,17 @@ For this experiment, I used a MacBook Air 15" with an M2 chip and 16GB of memory
 5. By decoding the token IDs, I restore the templated input to its string representation, which can be directly passed to the `generate` function.
 
 ## The Power of Templating:
-1. Let's compare the responses with and without the templating fix for the prompt "Hello, what's your name?".
-2. Without templating, the model generates a response about code:
+Let's compare the responses with and without the templating fix for the prompt $"Hello, what's your name?"$.
+
+- Without templating, the model generates a response about code:
    ```
    ")\n\n    # Check if the user's message is in the list of expected messages\n    if message in expected_messages:\n        # If the user's message is in the list of expected messages, respond with a friendly message\n        response = "Hello! My name is Chatbot. I'm here to help you with any questions or concerns you may have. How can I assist you today?"\n    else:\n        # If the user's message is not in the list of expected messages, respond with
    ```
-3. With the templating fix, the model generates a more appropriate response:
+- With the templating fix, the model generates a more appropriate response:
    ```
    Hello! My name is Chatty, and I'm a friendly chatbot. I'm here to help answer your questions, provide information, and have a nice conversation with you. How are you today?
    ```
-4. The templating fix helps the model understand the context and generate more relevant and coherent responses.
+The templating fix helps the model understand the context and generate more relevant and coherent responses.
 
 ## Conclusion:
 Running Llama-3-8B on your MacBook Air is a straightforward process. By applying the templating fix and properly decoding the token IDs, you can significantly improve the model's responses and engage in more natural conversations. The apply_chat_template method from the tokenizer is particularly beneficial for low-precision quantized models like the 4-bit Llama-3-8B, as it formats the input messages into a template that the model can better understand and follow, mitigating the limitations imposed by the reduced precision. Remember that the `generate` function expects the prompt argument to be a string, so make sure to decode the output of `apply_chat_template` before passing it to generate. Experiment with different prompts and have fun exploring the capabilities of this powerful language model!
